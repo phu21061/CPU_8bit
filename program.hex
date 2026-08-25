@@ -1,0 +1,39 @@
+// Chương trình test cho CPU 8-bit
+// Mỗi dòng = 1 lệnh 16-bit (hex)
+//
+// Addr | Hex  | Assembly           | Expected Result
+// -----|------|--------------------|----------------
+// 0    | 820A | LDI  R1, 10       | R1 = 10
+// 1    | 8405 | LDI  R2, 5        | R2 = 5
+// 2    | 0650 | ADD  R3, R1, R2   | R3 = 15
+// 3    | 1850 | SUB  R4, R1, R2   | R4 = 5
+// 4    | 2A50 | AND  R5, R1, R2   | R5 = 0
+// 5    | 3A50 | OR   R5, R1, R2   | R5 = 15
+// 6    | 4C50 | XOR  R6, R1, R2   | R6 = 15
+// 7    | 5E40 | NOT  R7, R1       | R7 = 245 (~10)
+// 8    | 6CC0 | SHL  R6, R3       | R6 = 30 (15<<1)
+// 9    | 7CC0 | SHR  R6, R3       | R6 = 7  (15>>1)
+// 10   | A600 | STORE R3, [R0+0]  | RAM[0] = 15
+// 11   | 9C00 | LOAD  R6, [R0+0]  | R6 = 15
+// 12   | B050 | CMP  R1, R2       | Z=0 (10 != 5)
+// 13   | E002 | BNE  +2           | Jump to addr 16
+// 14   | F000 | NOP               | (skipped)
+// 15   | F000 | NOP               | (skipped)
+// 16   | C010 | JMP  16           | Halt (infinite loop)
+820A
+8405
+0650
+1850
+2A50
+3A50
+4C50
+5E40
+6CC0
+7CC0
+A600
+9C00
+B050
+E002
+F000
+F000
+C010
